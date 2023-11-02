@@ -1,0 +1,27 @@
+[build]
+packages = [
+    "transformation_model"
+]
+
+[version]
+path = "transformation_model/__init__.py"
+
+[envs.default]
+path = ".venv"
+dependencies = [
+    "pytest",
+    "jupyter"
+]
+
+[envs.test]
+path = ""
+dependencies = [
+    "pytest",
+]
+
+[[envs.test.matrix]]
+python = ["3.9", "3.10", "3.11"]
+
+[envs.test.scripts]
+all = "pytest tests"
+solve = "pytest tests/test_solve.py"
